@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv = "Content-Type" content = "text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>D'Quiz</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="icon" type="image/png" href="img/icon.png" />
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+		<script src="js/circle-progress.js" type="text/javascript"></script>
+		<script src="js/questions.js" type="text/javascript"></script>
+		<script src="js/app.js" type="text/javascript"></script>
+		<script src="js/jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<audio id="correctSound" src="audio/Correct%20Sound.mp3" type = "audio/mp3" preload="auto"></audio>
+		<audio id="timerSound" src="audio/Timer%20Sound.mp3" type = "audio/mp3" preload="auto"></audio>
+		<div id="HomeScreen" data-role="page" data-theme="z">
+			<div class="navbar">
+				<img src="img/icon.png" alt="D'Quiz Logo" />
+				<p>D'Quiz</p>
+				<i class="fa fa-ellipsis-v fa-2x menu"></i>
+				<ul class="more">
+					<li><a href="#statistics" data-transition="fade" onClick = "showStatistics();">Statistics</a></li>
+					<li><a href="#about" data-transition="pop">About</a></li>
+				</ul>
+			</div>
+			<div class="center">
+				<label for="Name"><p>Enter Your Name:</p></label>
+				<div class="input">
+					<input id="Name" type="text" data-role="none" placeholder="Your Name..."/>
+				</div>
+				<a class="go" href="#welcome" data-transition="slide" onClick="setUserName();">Go<br><i class="fa fa-arrow-circle-right fa-lg"></i></a>
+			</div>
+		</div>
+		
+		<div id="welcome" data-role="page" data-theme="z">
+			<div class="navbar">
+				<img src="img/icon.png" alt="D'Quiz Logo" />
+				<p>D'Quiz</p>
+				<i class="fa fa-ellipsis-v fa-2x menu"></i>
+				<ul class="more">
+					<li><a href="#statistics" data-transition="fade" onClick = "showStatistics();">Statistics</a></li>
+					<li><a href="#about" data-transition="pop">About</a></li>
+				</ul>
+			</div>
+			<div class="userWelcome">
+				<p class="userWel">Welcome</p>
+				<p class="userName" id="userN">User</p>
+			</div>
+			<div class="info">
+				<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; D'Quiz is an Interactive Quiz App for Testing your Data Structure Knowledge. There are so many categories and each category will have a bunch of exciting questions <br><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Each Quiz will have 15 questions and you will have only 10 seconds to answer each question. Each question carries 20 points and a wrong answer will have negative marking of 5 points. Ready to play, then click on Start button<br><br></p>
+				<a href="#categories" data-transition="slide"><div class="start">Start <i class="fa fa-caret-right"></i></div></a>
+			</div>
+		</div>
+		
+		<div id="categories" data-role="page" data-theme="z">
+			<div class="navbar">
+				<img src="img/icon.png" alt="D'Quiz Logo" />
+				<p>D'Quiz</p>
+				<i class="fa fa-ellipsis-v fa-2x menu"></i>
+				<ul class="more">
+					<li><a href="#statistics" data-transition="fade" onClick = "showStatistics();">Statistics</a></li>
+					<li><a href="#about" data-transition="pop">About</a></li>
+				</ul>
+			</div>
+			<div class="categories">
+				<div class="cHeader">Select the Topic:</div>
+				<a href="#questionTemplate" onClick="setI(0)"><div class="topic">Stack <i class="fa fa-angle-double-right"></i></div></a>
+				<a href="#questionTemplate" onClick="setI(1)"><div class="topic">Queue <i class="fa fa-angle-double-right"></i></div></a>
+				<a href="#questionTemplate" onClick="setI(2)"><div class="topic">Linked List <i class="fa fa-angle-double-right"></i></div></a>
+				<a href="#questionTemplate" onClick="setI(3)"><div class="topic">Binary Trees <i class="fa fa-angle-double-right"></i></div></a>
+				<a href="#questionTemplate" onClick="setI(4)"><div class="topic">General Trees <i class="fa fa-angle-double-right"></i></div></a>
+				<a href="#questionTemplate" onClick="setI(5)"><div class="topic">Graphs <i class="fa fa-angle-double-right"></i></div></a>
+				<a href="#questionTemplate" onClick="setI(6)"><div class="topic">Search & Sort <i class="fa fa-angle-double-right"></i></div></a>
+				<a href="#questionTemplate" onClick="setI(7)"><div class="topic">Algorithms <i class="fa fa-angle-double-right"></i></div></a>
+			</div>
+			<div class="hoverBack">
+				<a href="#welcome" data-transition = "slide" data-direction = "reverse"><i class="fa fa-chevron-left"></i></a>
+			</div>
+		</div>
+		
+		<div id="ready" data-role="page" data-theme="z">
+			<div class="readyBG">
+				<div class="readyButton">
+					<div class="readyText">Ready</div>
+					<i class="fa fa-spinner fa-spin fa-5x"></i>
+				</div>
+			</div>
+		</div>
+		
+		<div id="questionTemplate" data-role="page" data-theme="z">
+			<div class="navbar">
+				<img src="img/icon.png" alt="D'Quiz Logo" />
+				<p>D'Quiz</p>
+				<i class="fa fa-ellipsis-v fa-2x menu"></i>
+				<ul class="more">
+					<li><a href="#dialogBoxRestart" data-transition="fade">Restart</a></li>
+					<li><a href="#dialogBoxMenu" data-transition="fade">Menu</a></li>
+					<li><a href="#about" data-transition="pop">About</a></li>
+				</ul>
+			</div>
+			<div class="centerQ">
+				<div class="controls">
+					<p class="qN">Question <span id="qNo">No.</span></p>
+					<div class="timer"><span id="time">10</span></div>
+					<p class="sc">Score: <span id="score">0</span></p>
+				</div>
+				<div class="qa">
+					<p id="question">Question?</p>
+					<ul class="options">
+						<li id="one" onClick="setScore(1);"><i id="option1">Option 1 </i> <span class="c">+20</span><span class="w">-5</span></li>
+						<li id="two" onClick="setScore(2);"><i id="option2">Option 2 </i> <span class="c">+20</span><span class="w">-5</span></li>
+						<li id="three" onClick="setScore(3);"><i id="option3">Option 3 </i> <span class="c">+20</span><span class="w">-5</span></li>
+						<li id="four" onClick="setScore(4);"><i id="option4">Option 4 </i> <span class="c">+20</span><span class="w">-5</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div id="hideAnim" data-role="page" data-theme="z">
+			<div class="hideBG"></div>
+		</div>
+		
+		<div id="results" data-role="page" data-theme="z">
+			<div class="navbar">
+				<img src="img/icon.png" alt="D'Quiz Logo" />
+				<p>D'Quiz</p>
+				<i class="fa fa-ellipsis-v fa-2x menu"></i>
+				<ul class="more">
+					<li><a href="#statistics" data-transition="fade" onClick = "showStatistics();">Statistics</a></li>
+					<li><a href="#about" data-transition="pop">About</a></li>
+				</ul>
+			</div>
+			<div class="percentage">
+				<div class="percentBar"><p id="percent">0%</p></div>
+			</div>
+			<div class="comment">
+				<p class="uScore">Your Score: <span id="userScore">0</span></p>
+				<p id="commentLine">This is the Comment line for the User</p>
+				<a href="#questionTemplate" onClick = "restartQuiz();" data-transition="fade"><div class="rButtons">Restart <i class="fa fa-chevron-right"></i></div></a>
+				<a href="#categories" onClick = "reset();" data-transition="fade"><div class="rButtons">Go to Menu <i class="fa fa-chevron-right"></i></div></a>
+				<a href="#statistics" data-transition="fade" onClick = "showStatistics();"><div class="rButtons">Check Your Stats <i class="fa fa-chevron-right"></i></div></a>
+			</div>
+			<div class="hoverBack">
+				<a href="#categories" data-transition = "slide" data-direction = "reverse"><i class="fa fa-chevron-left"></i></a>
+			</div>
+		</div>
+		
+		<div id="statistics" data-role="page" data-theme="z">
+			<div class="navbar">
+				<img src="img/icon.png" alt="D'Quiz Logo" />
+				<p>D'Quiz</p>
+				<i class="fa fa-ellipsis-v fa-2x menu"></i>
+				<ul class="more">
+					<li><a href="#categories" data-transition="fade" onClick="reset();">Menu</a></li>
+					<li><a href="#dialogBoxReset">Reset</a></li>
+					<li><a href="#about" data-transition="pop">About</a></li>
+				</ul>
+			</div>
+			<div class="sPercentage">
+				<div class="sPercentBar"><p id="sPercent">0%</p></div>
+			</div>
+			<div class="categoryPercentage">
+				<div class="sPercent">
+					<p id="firstChild">Stack <span id="mP0">0%</span></p>
+					<meter value="0" id="m0"></meter>
+				</div>
+				<div class="sPercent">
+					<p>Queue <span id="mP1">0%</span></p>
+					<meter value="0" id="m1"></meter>
+				</div>
+				<div class="sPercent">
+					<p>Linked Lists <span id="mP2">0%</span></p>
+					<meter value="0" id="m2"></meter>
+				</div>
+				<div class="sPercent">
+					<p>Binary Trees <span id="mP3">0%</span></p>
+					<meter value="0" id="m3"></meter>
+				</div>
+				<div class="sPercent">
+					<p>General Trees <span id="mP4">0%</span></p>
+					<meter value="0" id="m4"></meter>
+				</div>
+				<div class="sPercent">
+					<p>Graphs <span id="mP5">0%</span></p>
+					<meter value="0" id="m5"></meter>
+				</div>
+				<div class="sPercent">
+					<p>Search & Sort <span id="mP6">0%</span></p>
+					<meter value="0" id="m6"></meter>
+				</div>
+				<div class="sPercent">
+					<p>Algorithms <span id="mP7">0%</span></p>
+					<meter value="0" id="m7"></meter>
+				</div>
+			</div>
+			<div class="hoverBack">
+				<a href="#" data-transition = "fade" onclick="window.history.back();"><i class="fa fa-chevron-left"></i></a>
+			</div>
+		</div>
+		
+		<div id="dialogBoxRestart" data-role="page" data-theme="z">
+			<div class="transBG">
+				<div class="box">
+					<p>Are you sure? Your entire progress will be lost.</p>
+					<div class="buttons">
+						<a href="#questionTemplate" onClick = "restartQuiz();" class="okButton">OK</a>
+						<a href="#" onClick= "window.history.back();" class="cancelButton">Cancel</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="dialogBoxMenu" data-role="page" data-theme="z">
+			<div class="transBG">
+				<div class="box">
+					<p>Are you sure? Your entire progress will be lost.</p>
+					<div class="buttons">
+						<a href="#categories" onClick = "reset();" class="okButton">OK</a>
+						<a href="#" onClick= "window.history.back();" class="cancelButton">Cancel</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="dialogBoxReset" data-role="page" data-theme="z">
+			<div class="transBG">
+				<div class="box">
+					<p>Are you sure? Your entire data will be lost.</p>
+					<div class="buttons">
+						<a href="#" onClick = "localStorage.clear(); showStatistics(); window.location='#HomeScreen';" class="okButton">OK</a>
+						<a href="#" onClick= "window.history.back();" class="cancelButton">Cancel</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="about" data-role="page" data-theme="z">
+			<i class = "fa fa-arrow-circle-left fa-3x back" onClick="window.history.back();"></i>
+			<div class="centerA">
+				<img class="author" src="img/harish.png" alt="Author" />
+				<p class="nameA">Harish Kandala</p>
+				<div class="social">
+					<a href="#" onClick="window.open('https://plus.google.com/+HarishKandala095/about', '_blank', 'location=yes');"><i class="fa fa-google-plus-square fa-5x"></i></a>
+					<a href="#" onClick="window.open('https://facebook.com/harish095', '_blank', 'location=yes');"><i class="fa fa-facebook-square fa-5x"></i></a>
+					<a href="#" onClick="window.open('https://twitter.com/harish_095', '_blank', 'location=yes');"><i class="fa fa-twitter-square fa-5x"></i></a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
