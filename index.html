@@ -8,24 +8,24 @@
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css">
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/style.css" />
-		<link rel="icon" type="image/png" href="img/icon.png" />
+		<link rel="icon" type="image/png" href="res/icon/icon-36-ldpi.png" />
+		<script src="cordova.js" type="text/javascript"></script>
 		<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
 		<script src="js/circle-progress.js" type="text/javascript"></script>
 		<script src="js/questions.js" type="text/javascript"></script>
 		<script src="js/app.js" type="text/javascript"></script>
 		<script src="js/jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
 	</head>
-	<body>
-		<audio id="correctSound" src="audio/Correct%20Sound.mp3" type = "audio/mp3" preload="auto"></audio>
-		<audio id="timerSound" src="audio/Timer%20Sound.mp3" type = "audio/mp3" preload="auto"></audio>
+	<body onTouchStart=" " onMouseOver=" " onload="onLoad();">
 		<div id="HomeScreen" data-role="page" data-theme="z">
 			<div class="navbar">
-				<img src="img/icon.png" alt="D'Quiz Logo" />
+				<img src="res/icon/icon-144-xxhdpi.png" alt="D'Quiz Logo" />
 				<p>D'Quiz</p>
 				<i class="fa fa-ellipsis-v fa-2x menu"></i>
 				<ul class="more">
 					<li><a href="#statistics" data-transition="fade" onClick = "showStatistics();">Statistics</a></li>
 					<li><a href="#about" data-transition="pop">About</a></li>
+					<li><a href="#" onClick = "confirmExit();">Exit</a></li>
 				</ul>
 			</div>
 			<div class="center">
@@ -39,12 +39,13 @@
 		
 		<div id="welcome" data-role="page" data-theme="z">
 			<div class="navbar">
-				<img src="img/icon.png" alt="D'Quiz Logo" />
+				<img src="res/icon/icon-144-xxhdpi.png" alt="D'Quiz Logo" />
 				<p>D'Quiz</p>
 				<i class="fa fa-ellipsis-v fa-2x menu"></i>
 				<ul class="more">
 					<li><a href="#statistics" data-transition="fade" onClick = "showStatistics();">Statistics</a></li>
 					<li><a href="#about" data-transition="pop">About</a></li>
+					<li><a href="#" onClick = "confirmExit();">Exit</a></li>
 				</ul>
 			</div>
 			<div class="userWelcome">
@@ -59,12 +60,13 @@
 		
 		<div id="categories" data-role="page" data-theme="z">
 			<div class="navbar">
-				<img src="img/icon.png" alt="D'Quiz Logo" />
+				<img src="res/icon/icon-144-xxhdpi.png" alt="D'Quiz Logo" />
 				<p>D'Quiz</p>
 				<i class="fa fa-ellipsis-v fa-2x menu"></i>
 				<ul class="more">
 					<li><a href="#statistics" data-transition="fade" onClick = "showStatistics();">Statistics</a></li>
 					<li><a href="#about" data-transition="pop">About</a></li>
+					<li><a href="#" onClick = "confirmExit();">Exit</a></li>
 				</ul>
 			</div>
 			<div class="categories">
@@ -94,13 +96,14 @@
 		
 		<div id="questionTemplate" data-role="page" data-theme="z">
 			<div class="navbar">
-				<img src="img/icon.png" alt="D'Quiz Logo" />
+				<img src="res/icon/icon-144-xxhdpi.png" alt="D'Quiz Logo" />
 				<p>D'Quiz</p>
 				<i class="fa fa-ellipsis-v fa-2x menu"></i>
 				<ul class="more">
-					<li><a href="#dialogBoxRestart" data-transition="fade">Restart</a></li>
-					<li><a href="#dialogBoxMenu" data-transition="fade">Menu</a></li>
+					<li><a href="#" onClick = "confirmRestart();">Restart</a></li>
+					<li><a href="#" data-transition="fade" onClick="confirmMenu();">Menu</a></li>
 					<li><a href="#about" data-transition="pop">About</a></li>
+					<li><a href="#" onClick = "confirmExit();">Exit</a></li>
 				</ul>
 			</div>
 			<div class="centerQ">
@@ -127,12 +130,13 @@
 		
 		<div id="results" data-role="page" data-theme="z">
 			<div class="navbar">
-				<img src="img/icon.png" alt="D'Quiz Logo" />
+				<img src="res/icon/icon-144-xxhdpi.png" alt="D'Quiz Logo" />
 				<p>D'Quiz</p>
 				<i class="fa fa-ellipsis-v fa-2x menu"></i>
 				<ul class="more">
 					<li><a href="#statistics" data-transition="fade" onClick = "showStatistics();">Statistics</a></li>
 					<li><a href="#about" data-transition="pop">About</a></li>
+					<li><a href="#" onClick = "confirmExit();">Exit</a></li>
 				</ul>
 			</div>
 			<div class="percentage">
@@ -152,13 +156,14 @@
 		
 		<div id="statistics" data-role="page" data-theme="z">
 			<div class="navbar">
-				<img src="img/icon.png" alt="D'Quiz Logo" />
+				<img src="res/icon/icon-144-xxhdpi.png" alt="D'Quiz Logo" />
 				<p>D'Quiz</p>
 				<i class="fa fa-ellipsis-v fa-2x menu"></i>
 				<ul class="more">
 					<li><a href="#categories" data-transition="fade" onClick="reset();">Menu</a></li>
-					<li><a href="#dialogBoxReset">Reset</a></li>
+					<li><a href="#" onClick="confirmReset();">Reset</a></li>
 					<li><a href="#about" data-transition="pop">About</a></li>
+					<li><a href="#" onClick = "confirmExit();">Exit</a></li>
 				</ul>
 			</div>
 			<div class="sPercentage">
@@ -196,60 +201,24 @@
 				<div class="sPercent">
 					<p>Algorithms <span id="mP7">0%</span></p>
 					<meter value="0" id="m7"></meter>
-				</div>
+				</div>	
 			</div>
 			<div class="hoverBack">
 				<a href="#" data-transition = "fade" onclick="window.history.back();"><i class="fa fa-chevron-left"></i></a>
 			</div>
 		</div>
 		
-		<div id="dialogBoxRestart" data-role="page" data-theme="z">
-			<div class="transBG">
-				<div class="box">
-					<p>Are you sure? Your entire progress will be lost.</p>
-					<div class="buttons">
-						<a href="#questionTemplate" onClick = "restartQuiz();" class="okButton">OK</a>
-						<a href="#" onClick= "window.history.back();" class="cancelButton">Cancel</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div id="dialogBoxMenu" data-role="page" data-theme="z">
-			<div class="transBG">
-				<div class="box">
-					<p>Are you sure? Your entire progress will be lost.</p>
-					<div class="buttons">
-						<a href="#categories" onClick = "reset();" class="okButton">OK</a>
-						<a href="#" onClick= "window.history.back();" class="cancelButton">Cancel</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div id="dialogBoxReset" data-role="page" data-theme="z">
-			<div class="transBG">
-				<div class="box">
-					<p>Are you sure? Your entire data will be lost.</p>
-					<div class="buttons">
-						<a href="#" onClick = "localStorage.clear(); showStatistics(); window.location='#HomeScreen';" class="okButton">OK</a>
-						<a href="#" onClick= "window.history.back();" class="cancelButton">Cancel</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
 		<div id="about" data-role="page" data-theme="z">
-			<i class = "fa fa-arrow-circle-left fa-3x back" onClick="window.history.back();"></i>
-			<div class="centerA">
-				<img class="author" src="img/harish.png" alt="Author" />
-				<p class="nameA">Harish Kandala</p>
-				<div class="social">
-					<a href="#" onClick="window.open('https://plus.google.com/+HarishKandala095/about', '_blank', 'location=yes');"><i class="fa fa-google-plus-square fa-5x"></i></a>
-					<a href="#" onClick="window.open('https://facebook.com/harish095', '_blank', 'location=yes');"><i class="fa fa-facebook-square fa-5x"></i></a>
-					<a href="#" onClick="window.open('https://twitter.com/harish_095', '_blank', 'location=yes');"><i class="fa fa-twitter-square fa-5x"></i></a>
-				</div>
+		<i class = "fa fa-arrow-circle-left fa-3x back" onClick="window.history.back();"></i>
+		<div class="centerA">
+			<img class="author" src="img/harish.png" alt="Author" />
+			<p class="nameA">Harish Kandala</p>
+			<div class="social">
+				<a href="#" onClick="window.open('https://plus.google.com/+HarishKandala095/about', '_blank', 'location=yes');"><i class="fa fa-google-plus-square fa-5x"></i></a>
+				<a href="#" onClick="window.open('https://facebook.com/harish095', '_blank', 'location=yes');"><i class="fa fa-facebook-square fa-5x"></i></a>
+				<a href="#" onClick="window.open('https://twitter.com/harish_095', '_blank', 'location=yes');"><i class="fa fa-twitter-square fa-5x"></i></a>
 			</div>
+		</div>
 		</div>
 	</body>
 </html>

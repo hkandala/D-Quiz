@@ -6,63 +6,53 @@
 body
 {
 	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-overflow-scrolling: touch;
+	overflow-x: hidden;
 	background-color: #e74c3c;
 	font-family: QuickSand !important;
 }
 body::-webkit-scrollbar
 {
-	background-color: #999999;
-	width:6px;
-}
-body::-webkit-scrollbar-thumb
-{
-	background-color: #545454;
-	border-radius: 3px;
-	width: 6px;
-	box-shadow: -1px 1px 5px black;
-}
-body::-webkit-scrollbar-thumb:hover
-{
-	background-color: #424242;
+	display: none;
 }
 .ui-page 
 { 
-	backface-visibility: hidden;
 	-webkit-backface-visibility: hidden; 
-	-moz-backface-visibility: hidden;
-	-o-backface-visibility: hidden;
 }
 
 /*Index Page Styling
 ---------------------------------------------------*/
 label
 {
-	width: 240px;
-	margin-right: auto !important;
+	width: 210px;
 	margin-left: auto !important;
+	margin-right: auto !important;
 	margin-bottom: 0px !important;
 }
 label > p
 {
 	font-family: QuickSand, sans-serif;
-	font-size: 27px;
+	font-size: 23px;
 	color: #ffffff;
 }
 input
 {
+	width: 250px;
 	border: 5px;
 	border-style: solid;
-	border-radius: 20px;
+	border-radius: 25px;
 	border-color: #AAD4FF;
 	padding-left: 20px;
+	padding-top: 5px;
 	background-color: #ecf0f1;
-	margin-top: 17px;;
+	margin-top: 10px;
 }
 input:focus, input:hover
 {
 	border: 5px;
 	border-style: solid;
-	border-radius: 20px;
+	border-radius: 25px;
 	border-color: #55D4FF;
 	outline: none;
 	background-color: white;
@@ -70,7 +60,7 @@ input:focus, input:hover
 #Name
 {
 	font-family: QuickSand, sans-serif;
-	font-size: 25px;
+	font-size: 20px;
 }
 body .center a
 {
@@ -83,36 +73,29 @@ body .center a
 }
 .go
 {
+	padding-bottom: 5px;
 	padding-top: 10px;
-	width: 90px;
-	height: 80px;
-	font-size: 26px;
-	border-radius: 60px;
-	margin-left: 110px;
+	width: 85px;
+	height: 70px;
+	margin-left: 88px;
 	margin-top: 25px;
-	border: 8px white solid;
-	box-shadow: 0px 0px 40px 2px #5A5A5A;
+	font-size: 25px;
+	border-radius: 50px;
+	border: 7px white solid;
 	-webkit-box-shadow: 0px 0px 40px 2px #5A5A5A;
-	-moz-box-shadow: 0px 0px 40px 2px #5A5A5A;
-	-o-box-shadow: 0px 0px 40px 2px #5A5A5A;
 }
 .go:active
 {
-	box-shadow: 0px 0px 40px 0px #5A5A5A;
-	-webkit-box-shadow: 0px 0px 40px 0px #5A5A5A;
-	-moz-box-shadow: 0px 0px 40px 0px #5A5A5A;
-	-o-box-shadow: 0px 0px 40px 0px #5A5A5A;
-	transform: translateY(2px);
+	-webkit-box-shadow: 0px 0px 40px 1px #5A5A5A;
 	-webkit-transform: translateY(2px);
-	-moz-transform: translateY(2px);
-	-o-transform: translateY(2px);
 }
 .center
 {
-	width:324px;
+	width:280px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 35vh;
+	margin-top: 58%;
+	margin-bottom: 200px;
 }
 
 /*-----------------------------------------------------*/
@@ -127,25 +110,24 @@ body .center a
 	z-index: 5;
 	position: fixed;
 	top: 0px;
-	width: 100vw;
+	left: 0px;
+	width: 100%;
 	background-color: #ecf0f1;
-	box-shadow: 0px 5px 50px #5A5A5A;
 	-webkit-box-shadow: 0px 5px 50px #5A5A5A;
-	-moz-box-shadow: 0px 5px 50px #5A5A5A;
-	-o-box-shadow: 0px 5px 50px #5A5A5A;
 }
 .navbar>img
 {
 	margin: 10px 10px;
+	margin-top: 13px;
 	width : 45px;
 	height: 45px;
 	float: left;
 }
 .navbar p
 {
-	margin-top: 5px;
+	margin-top: 14px;
 	margin-bottom: 8px;
-	margin-left: 15px;
+	margin-left: 7px;
 	font-size: 40px;
 	font-family: QuickSand, sans-serif;
 	width: 170px;
@@ -153,14 +135,11 @@ body .center a
 }
 .navbar i
 {
-	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-o-box-sizing: border-box;
 	font-size: 25px;
 	width: 45px;
 	height: 45px;
-	margin-top: 20px;
+	margin-top: 28px;
 	cursor: pointer;
 	float: right;
 	text-align: center;
@@ -171,10 +150,7 @@ body .center a
 	right: 10px;
 	top: 60px;
 	background-color: #ecf0f1;
-	box-shadow: 0px 2px 20px 0px #5A5A5A;
 	-webkit-box-shadow: 0px 2px 20px 0px #5A5A5A;
-	-moz-box-shadow: 0px 2px 20px 0px #5A5A5A;
-	-o-box-shadow: 0px 2px 20px 0px #5A5A5A;
 	display: none;
 }
 .navbar ul li
@@ -207,43 +183,43 @@ body .center a
 /*--------------------------------------------------------*/
 
 
-
 /*About Page Styling
 ----------------------------------------------------------*/
 .centerA
 {
-	width:400px;
+	width:320px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 10vh;
+	margin-top: 22%;
 }
 .author
 {
-	width: 300px;
-	height: 300px;
-	border-radius: 165px;
-	border: 15px solid white;
+	width: 230px;
+	height: 230px;
+	border-radius: 160px;
+	border: 10px solid white;
 	margin-left: 35px;	
 }
 .social
 {
-	width: 400px;
+	width: 300px;
 	margin-top: 30px;
 	background: white;
 	padding: 10px 10px;
 	border-radius: 10px;
+	font-size: 13px;
 }
 .social i
 {
-	margin-right: 90px;
+	margin-right: 59px;
 }
 .nameA
 {
 	font-family: QuickSand, sans-serif;
-	font-size: 45px;
+	font-size: 35px;
 	color: white;
 	margin-top: 20px;
-	margin-left: 30px;
+	margin-left: 27px;
 }
 .social .fa-twitter-square
 {
@@ -285,14 +261,14 @@ body .center a
 	color: white;
 	background-color: #2ecc71;
 	padding-top: 20px;
-	padding-bottom: 20px;	
+	padding-bottom: 20px;
 }
  .userWelcome .userWel
 {
-	width: 100vw;
-	font-size: 80px;
+	width: 100%;
+	font-size: 60px;
 	text-align: center;
-	padding-top: 100px;
+	padding-top: 90px;
 	padding-bottom: 10px;
 	padding-left: 0px;
 }
@@ -300,61 +276,48 @@ body .center a
 {
 	text-align: center;
 	width: 90%;
-	height: 84px;
+	height: 85px;
 	margin-left: auto;
 	margin-right: auto;
-	font-size: 65px;
+	font-size: 45px;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
-	margin-bottom: 20px;
 }
 .info
 {
 	background-color: #3498db;
 	font-family: QuickSand, sans-serif;
-	font-size: 25px;
+	font-size: 22px;
 	color: white;
 	padding: 20px 20px;
 	padding-top: 30px;
-	box-shadow: 0px -4px 50px #5A5A5A;
 	-webkit-box-shadow: 0px -4px 50px #5A5A5A;
-	-moz-box-shadow: 0px -4px 50px #5A5A5A;
-	-o-box-shadow: 0px -4px 50px #5A5A5A;
 }
 .start
 {
 	background-color: #2c3e50;
 	border-radius: 20px;
-	font-size: 45px;
+	font-size: 35px;
 	padding: 10px 10px;
 	text-align: center;
 	border: 6px solid white;
-	box-shadow: 0px 0px 50px 2px #5A5A5A;
 	-webkit-box-shadow: 0px 0px 50px 2px #5A5A5A;
-	-moz-box-shadow: 0px 0px 50px 2px #5A5A5A;
-	-o-box-shadow: 0px 0px 50px 2px #5A5A5A;
 	margin-bottom: 50px;
 }
 .start:active
 {
-	box-shadow: 0px 0px 40px 1px #5A5A5A;
 	-webkit-box-shadow: 0px 0px 40px 1px #5A5A5A;
-	-moz-box-shadow: 0px 0px 40px 1px #5A5A5A;
-	-o-box-shadow: 0px 0px 40px 1px #5A5A5A;
-	transform: translateY(2px);
 	-webkit-transform: translateY(2px);
-	-moz-transform: translateY(2px);
-	-o-transform: translateY(2px);
 }
 .info a
 {
 	display: block;
-	text-decoration:none;
-	color: white;
-	width: 300px;
+	width: 250px;
 	margin-left: auto;
 	margin-right: auto;
+	text-decoration:none;
+	color: white;
 }
 /*-------------------------------------------------------------*/
 
@@ -366,20 +329,18 @@ body .center a
 	background-color: #34495e;
 	color: white;
 	font-family: QuickSand, sans-serif;
-	font-size: 25px;
+	font-size: 20px;
 	padding: 20px;
-	width: 60%;
-	min-width: 380px;
+	padding-top: 25px;
+	width: 80%;
+	max-width: 600px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 100px;
+	margin-top: 85px;
 	margin-bottom: 50px;
 	border-radius: 30px;
-	border: 10px solid white;
-	box-shadow: 10px 5px 30px #5A5A5A;
+	border: 5px solid white;
 	-webkit-box-shadow: 10px 5px 30px #5A5A5A;
-	-moz-box-shadow: 10px 5px 30px #5A5A5A;
-	-o-box-shadow: 10px 5px 30px #5A5A5A;
 }
 .categories > a
 {
@@ -387,38 +348,33 @@ body .center a
 }
 .cHeader
 {
-	width: 90%;
+	width: 80%;
 	padding: 20px;
+	padding-left: 0px;
 	font-weight: 600;
-	font-size: 40px;
+	font-size: 25px;
 	margin-left: auto;
 	margin-right: auto;
 }
 .topic
 {
-	width: 80%;
+	width: 70%;
 	background-color: white;
 	border-radius: 10px;
 	color: #2c3e50;
-	border: 7px solid #16a085;
+	border: 5px solid #16a085;
 	padding: 10px;
 	padding-right: 30px;
 	padding-left: 20px;
-	margin: 30px;
 	margin-left: auto;
 	margin-right: auto;
-	box-shadow: 0px 0px 10px 0px #ecf0f1;
-	-webkit-box-shadow: 0px 0px 10px 0px #ecf0f1;
-	-moz-box-shadow: 0px 0px 10px 0px #ecf0f1;
-	-o-box-shadow: 0px 0px 10px 0px #ecf0f1;
+	margin-bottom: 25px;
+	-webkit-box-shadow: 0px 0px 6px 0px #ecf0f1;
 	cursor: pointer;
 }
 .topic:active 
 {
-	transform: translateY(4px);
-	-webkit-transform: translateY(4px);
-	-moz-transform: translateY(4px);
-	-o-transform: translateY(4px);
+	-webkit-transform: translateY(2px);
 }
 .topic i
 {
@@ -436,18 +392,18 @@ body .center a
 }
 .readyButton
 {
-	width: 393px;
+	width: 306px;
 	margin-right: auto;
 	margin-left: auto;
-	padding-top: 18vh;
+	padding-top: 42%;
 	cursor: pointer;
 }
 .readyText
 {
-	margin-top: 180px;
-	margin-left: 90px;
+	margin-top: 140px;
+	margin-left: 80px;
 	position: absolute;
-	font-size: 70px;
+	font-size: 50px;
 	color:#ecf0f1;
 	font-family: QuickSand, sans-serif;
 }
@@ -457,13 +413,13 @@ body .center a
 	top: 0px;
 	right: 0px;
 	background-color: #2c3e50;
-	height: 100vh;
-	width: 100vw;
+	height: 100%;
+	width: 100%;
 }
 .fa-spin
 {
 	color: #ecf0f1;
-	font-size: 450px;
+	font-size: 350px;
 }
 /*------------------------------------------------------------------*/
 
@@ -472,15 +428,15 @@ body .center a
 --------------------------------------------------------------------*/
 #questionTemplate
 {
-	background-color: #2980b9;
+	background-color: #2980b9;	
 }
 .centerQ
 {
-	width: 50%;
-	min-width: 450px;
+	width: 95%;
+	max-width: 500px;
 	margin-left: auto;
 	margin-right: auto;
-	padding-top: 90px;
+	padding-top: 85px;
 }
 .options
 {
@@ -490,20 +446,17 @@ body .center a
 {
 	position: relative;
 	color: black;
-	font-size: 25px;
+	font-size: 15px;
 	background-color: #ecf0f1;
 	padding: 20px;
-	margin: 20px;
-	border-radius: 25px;
-	border: 5px solid #0E0E0E;
+	margin: 20px 10px;
+	-webkit-border-radius: 20px;
+	border: 4px solid #0E0E0E;
 	cursor: pointer;
 }
 .options li:active
 {
-	transform: translateY(2px);
 	-webkit-transform: translateY(2px);
-	-moz-transform: translateY(2px);
-	-o-transform: translateY(2px);
 }
 .options li span
 {
@@ -513,7 +466,7 @@ body .center a
 }
 #question
 {
-	font-size: 30px;
+	font-size: 20px;
 	color: white;
 }
 .correct
@@ -545,125 +498,59 @@ body .center a
 .qa
 {
 	background-color: #2c3e50;
-	padding: 30px 25px;
-	margin-top: 20px;
+	padding: 20px 15px;
+	margin-top: 15px;
 	margin-bottom: 25px;
 	border-radius: 20px;
-	border: 6px solid white;
-	box-shadow: 0px 10px 30px #5A5A5A;
-	-webkit-box-shadow: 0px 10px 30px #5A5A5A;
-	-moz-box-shadow: 0px 10px 30px #5A5A5A;
-	-o-box-shadow: 0px 10px 30px #5A5A5A;
+	border: 4px solid white;
+	-webkit-box-shadow: 0px 5px 30px #5A5A5A;
 }
 .controls
 {
 	position: relative;
-	height: 80px;
+	height: 60px;
 	font-weight: 600;
 	background-color: #16a085;
 	border-radius: 20px;
-	box-shadow: 0px 5px 10px #5A5A5A;
 	-webkit-box-shadow: 0px 5px 10px #5A5A5A;
-	-moz-box-shadow: 0px 5px 10px #5A5A5A;
-	-o-box-shadow: 0px 5px 10px #5A5A5A;
-	border: 6px solid white;
+	border: 4px solid white;
 	color: white;
 }
 .controls p
 {
-	font-size: 25px;
+	font-size: 15px;
 	position: absolute;
 }
 .timer
 {
 	position: absolute;
-	left: 45%;
+	left: 43%;
 	top: 10px;
 }
 .timer span
 {
 	position: absolute;
-	top: 16px;
-	right: 20px;
-	font-size: 20px;
+	top: 12px;
+	right: 14px;
+	font-size: 13px;
 }
 .qN
 {
-	top: 22px;
+	top: 20px;
 	left: 15px;
 }
 .sc
 {
-	top: 22px;
+	top: 20px;
 	right: 30px;
 }
 .hideBG
 {
-	width: 100vw;
-	height: 250vh;
+	width: 100%;
+	height: 2000px;
 	background-color: #2980b9;
 }
 /*-----------------------------------------------------------*/
-
-
-/*---------------------Dialog Box Styling-----------------------*/
-.transBG
-{
-	background-color: #2c3e50;
-	width: 100vw;
-	height: 100vh;
-	min-height: 720px;
-	padding-top: 30vh;
-}
-.box
-{
-	position: relative;;
-	background-color: #ecf0f1;
-	width: 350px;
-	height: 170px;
-	margin-left: auto;
-	margin-right: auto; 	
-	border-radius: 25px;
-	padding: 20px;
-	box-shadow: 5px 5px 25px 0px #5A5A5A;
-	-webkit-box-shadow: 5px 5px 25px 0px #5A5A5A;
-	-moz-box-shadow: 5px 5px 25px 0px #5A5A5A;
-	-o-box-shadow: 5px 5px 25px 0px #5A5A5A;
-}
-.box>p
-{
-	margin-top: 20px;
-	font-size: 25px;
-	text-align: center;
-}
-.buttons
-{
- 	position: absolute;
-	width: 200px;
-	right: 95px;
-	bottom: 45px;
-}
-.okButton
-{
-	font-size: 20px;
-	background-color: #2ecc71;
-	padding: 10px;	
-	color: white;
-	text-decoration: none;
-	margin-right: 50px;
-	border-radius: 10px;
-}
-.cancelButton
-{
-	font-size: 20px;
-	background-color: #e74c3c;
-	padding: 10px;
-	color: white;
-	text-decoration: none;
-	border-radius: 10px;
-}
-
-/*--------------------------------------------------------------*/
 
 
 /*---------------------Back Button Styling----------------------*/
@@ -706,11 +593,11 @@ body .center a
 .percentage
 {
 	background-color: #2ecc71;
-	height: 400px;
+	height: 350px;
 }
 .percentBar
 {
-	width: 250px;
+	width: 210px;
 	padding-top: 110px;
 	margin-left: auto;
 	margin-right: auto;
@@ -719,55 +606,50 @@ body .center a
 {
 	position: absolute;
 	font-family: sans-serif;
-	width: 250px;
-	height: 250px;
+	width: 210px;
+	height: 210px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	top: 185px;
-	font-size: 80px;
+	top: 173px;
+	font-size: 65px;
 	color: #ecf0f1;
 }
 .comment
 {
-	padding: 20px;
+	padding: 10px;
 	background-color: #3498db;
 	box-shadow: 0px -5px 40px #5A5A5A;
 	-webkit-box-shadow: 0px -5px 40px #5A5A5A;
-	-moz-box-shadow: 0px -5px 40px #5A5A5A;
-	-o-box-shadow: 0px -5px 40px #5A5A5A;
 }
 #commentLine
 {
 	font-weight: 600;
 	text-align: center;
 	color: white;
-	font-size: 40px;
-	margin-bottom: 100px;
-	margin-top: 50px;
+	font-size: 35px;
+	margin-bottom: 60px;
+	margin-top: 30px;
 }
 .uScore
 {
 	font-weight: 600;
 	font-size: 30px;
 	color: white;
+	margin-top: 20px;
 	text-align: center;
-	margin-top: 50px;
-	margin-bottom: 50px;
 }
 .rButtons
 {
 	position: relative;
 	background-color: #2c3e50;
 	border-radius: 20px;
-	font-size: 30px;
+	font-size: 25px;
 	padding: 10px 10px;
 	padding-left: 20px;
 	border: 5px solid white;
 	box-shadow: 0px 0px 50px 1px #5A5A5A;
 	-webkit-box-shadow: 0px 0px 50px 1px #5A5A5A;
-	-moz-box-shadow: 0px 0px 50px 1px #5A5A5A;
-	-o-box-shadow: 0px 0px 50px 1px #5A5A5A;
 	margin-bottom: 20px;
 	margin-top: 20px;
 }
@@ -782,19 +664,15 @@ body .center a
 {
 	box-shadow: 0px 0px 40px 1px #5A5A5A;
 	-webkit-box-shadow: 0px 0px 40px 1px #5A5A5A;
-	-moz-box-shadow: 0px 0px 40px 1px #5A5A5A;
-	-o-box-shadow: 0px 0px 40px 1px #5A5A5A;
 	transform: translateY(2px);
 	-webkit-transform: translateY(2px);
-	-moz-transform: translateY(2px);
-	-o-transform: translateY(2px);
 }
 #results .comment a
 {
 	display: block;
 	text-decoration:none;
 	color: white;
-	width: 350px;
+	width: 300px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -809,11 +687,11 @@ body .center a
 .sPercentage
 {
 	background-color: #2ecc71;
-	height: 400px;
+	height: 350px;
 }
 .sPercentBar
 {
-	width: 250px;
+	width: 210px;
 	padding-top: 110px;
 	margin-left: auto;
 	margin-right: auto;
@@ -822,13 +700,13 @@ body .center a
 {
 	position: absolute;
 	font-family: sans-serif;
-	width: 250px;
-	height: 250px;
+	width: 210px;
+	height: 210px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	top: 185px;
-	font-size: 80px;
+	top: 174px;
+	font-size: 65px;
 	color: #ecf0f1;
 }
 .categoryPercentage
@@ -837,16 +715,14 @@ body .center a
 	background-color: #3498db;
 	box-shadow: 0px -5px 40px #5A5A5A;
 	-webkit-box-shadow: 0px -5px 40px #5A5A5A;
-	-moz-box-shadow: 0px -5px 40px #5A5A5A;
-	-o-box-shadow: 0px -5px 40px #5A5A5A;
 }
 .categoryPercentage p
 {
 	color: white;
-	font-size: 25px;
+	font-size: 20px;
 	font-weight: 600;
 	width: 50%;
-	min-width: 350px;
+	min-width: 300px;
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 5px;
@@ -865,8 +741,8 @@ body .center a
 {
 	display: block;
 	width: 50%;
-	min-width: 350px;
-  	height: 30px;
+	min-width: 300px;
+  	height: 25px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 25px;
@@ -884,4 +760,3 @@ meter::-webkit-meter-optimum-value {
 	border-radius: 17px;
 }
 /*---------------------------------------------------------------*/
-

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+	xmlns:gap = "http://phonegap.com/ns/1.0"
+	id        = "com.harishkandala.dquiz"
+	versionCode="1"
+	version   = "1.0.0">
+	<name>D'Quiz</name>
+	<description>An Interactive Quiz App for testing your Data Structure knowledge</description>
+	<author email="kandalaharish95@gmail.com">
+		Harish Kandala
+	</author>
+	<gap:platform name="android" />
+	<preference name="phonegap-version" value="3.5.0" />
+	<preference name="orientation" value="portrait" />
+	<preference name="fullscreen" value="true" />
+	<preference name="webviewbounce" value="false" />
+	<preference name="DisallowOverscroll" value="true"/>
+	<preference name="disallowOverscroll" value="true" />
+	<preference name="BackgroundColor" value="0xffffffff "/>
+	<preference name="KeepRunning" value="false" />
+	<preference name="stay-in-webview" value="false" />
+	<icon src="res/icon/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
+	<icon src="res/icon/icon-48-mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
+	<icon src="res/icon/icon-72-hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
+	<icon src="res/icon/icon-96-xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
+	<icon src="res/icon/icon-144-xxhdpi.png" gap:platform="android" gap:qualifier="xxhdpi" />
+	<gap:splash src="res/screen/screen-ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
+	<gap:splash src="res/screen/screen-mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
+	<gap:splash src="res/screen/screen-hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
+	<gap:splash src="res/screen/screen-xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
+	<gap:splash src="res/screen/screen-xxhdpi.png" gap:platform="android" gap:qualifier="xxhdpi" />
+	<gap:splash src="splash.png" />
+	<gap:plugin name="org.apache.cordova.device" version="0.2.12" />
+	<gap:plugin name="org.apache.cordova.media" version="0.2.13" />
+	<gap:plugin name="org.apache.cordova.splashscreen" version="0.3.3" />
+	<gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
+	<gap:plugin name="org.apache.cordova.vibration" version="0.3.11" />
+	<access origin="*" subdomains="true" />
+</widget>	

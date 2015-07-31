@@ -28,6 +28,91 @@ var sQuestions = new Queue();
 /*---------------------------------------------*/
 
 
+function onLoad()
+{
+	document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+function onDeviceReady()
+{
+	document.addEventListener("backbutton", confirmExit, false);
+}
+
+function confirmExit()
+{
+	navigator.notification.confirm(
+		'Are you sure you want to leave?', 
+		 exitApp,           
+		'Exit',           
+		['OK','Cancel']     
+	);
+}
+
+function confirmRestart()
+{
+	navigator.notification.confirm(
+		'Are you sure? Your entire progress will be lost.', 
+		 restart,           
+		'Restart',           
+		['OK','Cancel']     
+	);
+}
+
+function confirmMenu()
+{
+	navigator.notification.confirm(
+		'Are you sure? Your entire progress will be lost.', 
+		 menu,           
+		'Confirm',           
+		['OK','Cancel']     
+	);
+}
+
+function confirmReset()
+{
+	navigator.notification.confirm(
+		'Are you sure? Your entire data will be lost.', 
+		 resetApp,           
+		'Confirm',           
+		['OK','Cancel']     
+	);
+}
+
+function exitApp(buttonIndex)
+{
+	if(buttonIndex==1)
+	{
+		navigator.app.exitApp()
+	}
+}
+
+function restart(buttonIndex)
+{
+	if(buttonIndex==1)
+	{
+		restartQuiz();
+	}
+}
+
+function menu(buttonIndex)
+{
+	if(buttonIndex==1)
+	{
+		window.location= "#categories"
+		reset();
+	}
+}
+
+function resetApp(buttonIndex)
+{
+	if(buttonIndex==1)
+	{
+		localStorage.clear(); 
+		showStatistics(); 
+		window.location='#HomeScreen';
+	}
+}
+
 function setUserName() {
 	if(localStorage.getItem("Name")==null)
 	{
@@ -52,8 +137,6 @@ function setI(temp)
 	cQuestion = undefined;
 	score = 0;
 	$("#score").html(score);
-	document.getElementById("timerSound").pause();
-	document.getElementById("timerSound").currentTime = 0;
 	clearInterval(interval);
 	clearTimeout(qTimeID);
 	clearTimeout(fTimeID);
@@ -194,7 +277,7 @@ function timer (time, animate)
 {
 	$('.timer').circleProgress({
 		value: time,
-		size: '60',
+		size: '40',
 		startAngle: -1.57079633,
 		fill: {
 		  color: 'rgba(0, 0, 0, 0.3)'
@@ -204,7 +287,7 @@ function timer (time, animate)
 			easing: 'linear'
 		},
 		emptyFill: '#7EFF64',
-		thickness: '10',
+		thickness: '7',
 	});
 }
 
@@ -214,7 +297,6 @@ function startTimer()
 	time = 10;
 	$("#time").html(time);
 	timer(1,10000);
-	document.getElementById("timerSound").play();
 	interval = setInterval(function () {
 		time--;
 		$("#time").html(time);
@@ -223,6 +305,7 @@ function startTimer()
 			clearInterval(interval);
 			disableOnClick();
 			showCorrectOption();
+			navigator.vibrate(200);
 		}
 	}, 1000);
 }
@@ -235,8 +318,6 @@ function nextQuestion()
 	timer((10.5-time)/10.0, 0);
 	disableOnClick();
 	showCorrectOption();
-	document.getElementById("timerSound").pause();
-	document.getElementById("timerSound").currentTime = 0;
 	eTimeID = setTimeout(function () {
 		hideAnimation();
 		setTimeout(function () {
@@ -257,7 +338,7 @@ function nextQuestion()
 					},3000);
 				}
 			},10100);
-		},200)	
+		},200)
 	},3000);
 }
 
@@ -302,8 +383,6 @@ function setScore (option)
 		clearInterval(interval);
 		timer((10.5-time)/10.0, 0);
 		disableOnClick();
-		document.getElementById("timerSound").pause();
-		document.getElementById("timerSound").currentTime = 0;
 		setTimeout(function() {
 			window.location = "#results";
 			showResults();
@@ -311,7 +390,7 @@ function setScore (option)
 	}
 	if(cQuestion.answer == option)
 	{
-		document.getElementById("correctSound").play();
+		navigator.vibrate(100);
 		switch(cQuestion.answer)
 		{
 				case 1:
@@ -335,6 +414,7 @@ function setScore (option)
 	}
 	else
 	{
+		navigator.vibrate(400);
 		showCorrectOption();
 		switch(option)
 		{
@@ -368,7 +448,7 @@ function setPercentage (percent)
 	}
 	$('.percentBar').circleProgress({
 		value: percent,
-		size: '250',
+		size: '210',
 		startAngle: -1.57079633,
 		fill: {
 		  color: '#f1c40f'
@@ -685,7 +765,7 @@ function setStatsPercentage ()
 	}
 	$('.sPercentBar').circleProgress({
 		value: percent,
-		size: '250',
+		size: '210',
 		startAngle: -1.57079633,
 		fill: {
 		  color: '#f1c40f'
@@ -718,6 +798,7 @@ function showStatistics ()
 	document.getElementById("m6").setAttribute("value", getAvg(6)/100);
 	$("#mP7").html(Number(getAvg(7))+"%");
 	document.getElementById("m7").setAttribute("value", getAvg(7)/100);
+	$("#mP8").html(Number(getAvg(8))+"%");
 }
 
 function resetArray ()
@@ -742,8 +823,6 @@ function reset()
 	cQuestion = undefined;
 	score = 0;
 	$("#score").html(score);
-	document.getElementById("timerSound").pause();
-	document.getElementById("timerSound").currentTime = 0;
 	disableOnClick();
 	clearInterval(interval);
 	clearTimeout(qTimeID);
@@ -757,6 +836,7 @@ function reset()
 	time = 10;
 	timer(0,0);
 }
+
 
 
 /*-----------------------------------QUEUE-----------------------------------*/
